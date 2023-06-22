@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to our Speakers page</title>
+</head>
+
+<style>
+    * {
+        box-sizing: border-box;
+        font-size: 62.5%;
+        padding: 0;
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 2rem;
+        background-color: rgba(34,450,120, 134.0);
+    }
+
+    .speakers_list_container {
+        width: 90%;
+        max-width: 120rem;
+        margin: 0 auto;
+        padding: 0 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+    }
+
+    .container_heading {
+        font-size: 5rem;
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    .speakers_list {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+    }
+
+    .speaker {
+        width: 25%;
+        max-width: 40rem;
+        padding: 2rem;
+        border-radius: .5rem;
+        box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
+        display: flex;
+        flex-direction: column;
+        text-decoration: none;
+        color: black;
+        gap: 1rem;
+        cursor: pointer;
+        transition: all .2s ease-in-out;
+    }
+
+    .speaker:hover {
+        transform: scale(1.02);
+    }
+
+    .speaker_name {
+        font-size: 2rem;
+        font-weight: 700;
+        text-align: center;
+    }
+
+    .speaker_profession {
+        font-size: 1.5rem;
+        font-weight: 500;
+        text-align: center;
+    }
+
+    .speaker_image {
+        width: 100%;
+        height: 30rem;
+        border-radius: .5rem;
+        object-fit: cover;
+    }
+
+    .speaker_bio {
+        font-size: 1.5rem;
+        font-weight: 500;
+        text-align: center;
+        margin: 1rem auto;
+    }
+</style>
+
+<body>
+    <div class="speakers_list_container">
+        <h1 class="container_heading">Speakers</h1>
+        <div class="speakers_list">
+            {%for speaker in speakers%}
+            <a href="/speakers/{{speaker.id}}" class="speaker">
+                <h3 class="speaker_name">{{speaker.name}}</h3>
+                <p class="speaker_profession">{{speaker.profession}}</p>
+                <img class="speaker_image" src={{speaker.image}} alt="Image of a speaker">
+                <p class="speaker_bio">{{speaker.bio}}</p>
+            </a>
+            {%endfor%}
+        </div>
+    </div>
+</body>
+
+</html>
